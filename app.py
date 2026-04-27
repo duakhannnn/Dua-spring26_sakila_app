@@ -6,6 +6,7 @@ from io import StringIO
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
+app.secret_key = "supersecretkey"
 app.config.from_object(Config)
 
 def get_db_connection():
