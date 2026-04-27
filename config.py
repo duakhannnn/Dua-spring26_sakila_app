@@ -9,10 +9,19 @@ class Config:
     """Base configuration class for the Sakila Flask application.
     Handles database connection strings and system timeouts.
     """
-    MYSQL_HOST = os.environ.get('MYSQL_HOST', 'sakila-db-server')
+
+   # Dua Shakeel - 25 april 
+
+MYSQL_HOST = 'sakila-db-server'
+
+CONNECTION_TIMEOUT = int(os.environ.get('CONNECTION_TIMEOUT', '30'))
+HEALTH_CHECK_INTERVAL = int(os.environ.get('HEALTH_CHECK_INTERVAL', '10'))
+
     MYSQL_USER = os.environ.get('MYSQL_USER', 'root')
     MYSQL_PASSWORD = os.environ.get('MYSQL_PASSWORD', 'admin')
     MYSQL_DB = os.environ.get('MYSQL_DB', 'sakila')
+
+# Dua Shakeel - 25 -april
 
     CONNECTION_TIMEOUT = int(os.environ.get('CONNECTION_TIMEOUT', '30'))
     HEALTH_CHECK_INTERVAL = int(os.environ.get('HEALTH_CHECK_INTERVAL', '10'))
@@ -29,7 +38,7 @@ class Config:
 
 import os
 
-MYSQL_HOST = os.environ.get('MYSQL_HOST', 'sakila-db-server')
+MYSQL_HOST = 'sakila-db-server'
 MYSQL_USER = os.environ.get('MYSQL_USER', 'root')
 MYSQL_PASSWORD = os.environ.get('MYSQL_PASSWORD', '')
 MYSQL_DB = os.environ.get('MYSQL_DB', 'sakila')
@@ -43,3 +52,5 @@ try:
     HEALTH_CHECK_INTERVAL = int(os.environ.get('HEALTH_CHECK_INTERVAL', '10'))
 except ValueError:
     HEALTH_CHECK_INTERVAL = 10
+
+# minor improvement after PR review - Dua 
